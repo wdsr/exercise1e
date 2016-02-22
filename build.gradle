@@ -1,0 +1,18 @@
+group 'wdsr.uni.lodz.pl'
+
+// Ustawienia wewnątrz tego bloku będą stosowane dla wszystkich modułów wymienionych w settings.gradle
+subprojects {
+	version '1.0'
+	
+	// Dołącza standardowa wtyczkę, które udostępnia operacje związane z kodem Java.
+	apply plugin: 'java'
+
+	// Określa wersję Java, której używa aplikacja (1.8 = Java 8)
+	sourceCompatibility = 1.8
+
+	// Lista repozytoriów, w których Gradle będzie szukał zależności.
+	repositories {
+		// Standardowe repozytorium: http://repo1.maven.org/maven2/
+	    mavenCentral()
+	}
+}
