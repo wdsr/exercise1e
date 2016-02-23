@@ -1,8 +1,13 @@
 package wdsr.exercise1;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -24,13 +29,14 @@ public class CalculatorUtilDivisionTest {
 	public void testDivisionByZero() {
 		// given
 		doThrow(new IllegalArgumentException()).when(calculator).divide(anyInt(), eq(0));
-		doReturn(4).when(calculator).add(8, 2);
+		doReturn(4.0).when(calculator).divide(8, 2);
 		
 		// when
-		calcUtil.getDivisionText(8, 2);
+		String result = calcUtil.getDivisionText(8, 2);
 		
 		// then
 		verify(calculator).divide(8,  2);
+		assertThat(result, is(equalTo("8 / 2 = 4.0")));
 		
 		// when
 		calcUtil.getDivisionText(3, 0);
