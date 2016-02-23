@@ -22,7 +22,7 @@ public class CalculatorUtil {
 	}
 	
 	public String getModuloText(final int a, final int b) {
-		return String.format("%s % %s = %s", a, b, calculator.modulo(a, b));
+		return String.format("%s %% %s = %s", a, b, calculator.modulo(a, b));
 	}		
 
 }
